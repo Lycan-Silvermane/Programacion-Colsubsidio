@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panaderia mil panes</title>
+    <meta name="description" content="Esto ya lo habia puesto :c">
+    <meta name="author" content="yo">     
+</head>
+
+<body>
+    <!-- Contenido principal -->
+    <main>
+    <section>
+        <article>
+            <header>
+                <h2><center> Menu de la cafeteria</center></h2>
+            </header>
+        </article>
+    </section>
+        <table border="2"> 
+            <thead>
+                <tr>
+                    <th id="categoria" scope="col"> Categoria</th>
+                    <th id="nombre" scope="col"> Producto </th>
+                    <th scope="col"> Descripcion </th>
+                    <th scope="col"> Precio </th>
+                </tr>
+            </thead>
+            <tbody>
+                <caption> </caption>
+                <tr>
+                    <td headers="categoria"><strong>Bebidas calientes</strong></td>
+                    <td headers="nombre" scope="row"> Chocolate </td>
+                    <td> Una taza de tipico Chocolate colombiano </td>
+                    <td> $5.000</td>
+                </tr>
+                <tr>
+                    <td headers="categoria"><strong>Bebidas frias</strong></td>
+                    <td headers="nombre" scope="row"> Jugo de naranja </td>
+                    <td> Un vaso de jugo de naranja natural recien explimida libre de clonacion vegetal </td>
+                    <td> $6.000 </td>
+                </tr>
+                <tr>
+                    <td headers="categoria"><strong>Snaks</strong></td>
+                    <td headers="nombre" scope="row"> Buñuelo</td>
+                    <td> Buñuelo hecho de masa de yuca, toda una exquisites en este pais y dimension</td>
+                    <td> $4.000</td>
+                </tr>
+                <tr>
+                    <td headers="categoria"><strong>Postres</strong></td>
+                    <td headers="nombre" scope="row"> Torta de amapola</td>
+                    <td> Tipica torta de amapola la cual esta extinta en la mayoria de universos del multiverso</td>
+                    <td> $4.500</td>
+                </tr>
+            </tbody>
+        </table><br>
+    <section>
+        <article>
+            <header>
+                <h3><center> Contactanos</center></h3>
+            </header>
+        </article>
+    </section>
+
+        <form action="/procesar_datos" method="post" enctype="miltipart/form_data" autocomplete="on">
+            <fieldset>
+                <legend><strong> Datos personales</strong></legend>
+            <!-- Aqui se añadiran los elementos de control del formularion, como inputs, textareas, etc.-->
+                <label>
+                Nombre:
+                    <input type="text" name="nombre_usuario" required><br>
+                </label>
+                <label>
+                Email:
+                    <input type="text" name="nombre_usuario" required><br>
+                </label>
+                <label>
+                Telefono:
+                    <input type="text" name="nombre_usuario" required><br>
+                </label>
+                </fieldset>
+                <label><br>
+            <fieldset>
+                <legend><strong> Datos de la consulta</strong> </legend>
+                Tipo de consulta:
+                    <select name="tipo_consulta" required>
+                        <option value="">--Selecciona una opcion--</option>
+                        <option value="informacion">Quiero más informacion</option>
+                        <option value="cita">Me gustaria hacer una cita</option>
+                        <optgroup label="Es una emergencia">
+                            <option value="glork">un Glork me persigue</option>
+                            <option value="suegra">mi suegra me persigio, salto entre dimensiones</option>
+                        </optgroup>
+                    </select>
+                </label><br><br>
+                <leabel>
+                    <input type="text" name="mensaje_usuario" required placeholder="Escribe tu mensaje aqui..." minlength="30" maxlength="200">
+                </leabel>
+            </fieldset><br>
+                <label>
+                Acepto <a href="#privacidad">politica de privacidad</a>
+                    <input type="checkbox" name="accept_pop" required><br>
+                </label><br>
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpiar</button>
+        </form>
+        
+    </main>    
+</body>
+</html>

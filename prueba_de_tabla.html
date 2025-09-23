@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Ejemplo Completa - HTML5</title>
+    <meta name="description" content="Una página de ejemplo que demuestra todos los conceptos de HTML5 aprendidos.">
+    <meta name="author" content="Brian"> 
+    <meta name="keywords" content="html5, semantica, accesibilidad, desarrollo web"> 
+    <meta property="og:title" content="Página de Ejemplo Completa - HTML5">
+    <meta property="og:description" content="Demostración de estructura, semántica y accesibilidad en HTML5.">
+    
+</head>
+
+<body>
+    <!-- Contenido principal -->
+    <main>
+    
+        <table border="2"> 
+            <thead>
+                <tr>
+                    <th id="nombre"> Nombre </th>
+                    <th> Contacto </th>
+                    <th colspan="2"> Hora de atencion </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td headers="nombre"> miguelito </td>
+                    <td> 30036925858 </td>
+                    <td> miercoles</td>
+                    <td> jueves </td>
+                </tr>
+                <tr>
+                    <td headers="nombre"> Pablito </td>
+                    <td> 30036925858 </td>
+                    <td> martes </td>
+                    <td> viernes </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form action="/procesar_datos" method="post" enctype="miltipart/form_data" autocomplete="on">
+            <!-- Aqui se añadiran los elementos de control del formularion, como inputs, textareas, etc.-->
+            <label for="username">Nombre de usuario:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <button type="submit">Enviar</button>
+        </form>
+        <label for="nombre_usuario"> Nombre: </label>
+        <input type="text" id="nombre_usuario" name="nombre_usuario1"
+
+        <label>
+            Apellido:
+            <input type="text" name="apellido_usuario"
+        </label>
+
+        <label>
+            Telefono:
+            <input type="tel" name="number_usuario"
+        </label>
+        <!-- los input pueden ser text, email, password, telephone,date y number-->
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+        <p>
+            <a href="#privacidad">Política de Privacidad</a> | 
+            <a href="#terminos">Términos de Servicio</a>
+        </p>
+    </footer>
+    
+</body>
+</html>
