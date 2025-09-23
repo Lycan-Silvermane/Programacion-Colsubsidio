@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean Michael Tafur Leal </title>
+    <meta name="description" content="Pagina de informacion personal">
+    <meta name="author" content="Jean Michael Tafur Leal"> 
+    <meta name="keywords" content="Jean, Michael, Tafur, Leal"> 
+    <meta property="og:title" content="Jean Michael Tafur Leal">
+    <meta property="og:description" content="Esta es mi informacion.">
+    
+</head>
+
+<body>
+    <aside>
+    <h2>Sidebar</h2>
+        <nav>
+                <ul>
+                    <li><a href="Pagina_personal.html">Inicio</a></li>
+                    <li><a href="Pagina_personal.html">Sobre mi</a></li>
+                    <li><a href="Habilidades.html">Habilidades</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <nav>
+            <ul>
+                    <li><a href="Pagina_personal.html">Inicio</a></li>
+                    <li><a href="Pagina_personal.html">Sobre mi</a></li>
+                    <li><a href="Habilidades.html">Habilidades</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header><br>
+
+<main>
+    <section>
+    <header>
+                <h3><center>Contacto</center></h3>
+            </header>
+        </article>
+    </section>
+
+        <form action="/procesar_datos" method="post" enctype="miltipart/form_data" autocomplete="on">
+            <fieldset>
+                <legend><strong> Datos personales</strong></legend>
+            <!-- Aqui se añadiran los elementos de control del formularion, como inputs, textareas, etc.-->
+                <label>
+                Nombre:<br>
+                    <input type="text" name="nombre_usuario" required><br>
+                </label>
+                <label>
+                Email:<br>
+                    <input type="text" name="nombre_usuario" required><br>
+                </label>
+                </fieldset>
+                <label><br>
+            <fieldset>
+                <legend><strong> Datos de la consulta</strong> </legend>
+                Tipo de consulta:<br>
+                    <select name="tipo_consulta" required>
+                        <option value="">--Selecciona una opcion--</option>
+                        <option value="informacion">Quiero más informacion</option>
+                        <option value="cita">Me gustaria contactarlo para negocios</option>
+                    </select>
+                </label><br><br>
+                <leabel>
+                    <input type="text" name="mensaje_usuario" required placeholder="Escribe tu mensaje aqui...">
+                </leabel>
+            </fieldset><br>
+                <label>
+                Acepto <a href="#privacidad">politica de privacidad</a>
+                    <input type="checkbox" name="accept_pop" required><br>
+                </label><br>
+            <button type="submit">Enviar</button>
+        </form>
+</main>
+</body>
+</html>
