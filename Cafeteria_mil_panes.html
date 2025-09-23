@@ -21,7 +21,7 @@
         <!-- Logo del sitio -->
         <img src="placeholder.jpg" alt="Logo de la cafeteria" width="60" height="60">
         <!-- Título principal -->
-        <h1>Cafeteria mil panes</h1>
+        <h1><center>Cafeteria mil panes</center></h1>
         <!-- Sidebar de navegación adicional -->
         <aside>
             <h2>Sidebar</h2>
@@ -95,8 +95,7 @@
                     </ul>
                 </details>
             </article>
-        </section>
-
+        </section><br>
     <!-- Sección sobre tipos de elementos HTML -->
     <section id="blog">
             <h2>Combos</h2>
@@ -110,9 +109,154 @@
                 Huevos al gusto/caldo/tamal, chocolate, pan, jugo de naranja y queso 
                 (puede elegir quitar una bebida <strong><em>se restaria el valor de la bebida</strong></em>)
             </p>
-        </section>
+        </section><br><br>
 
-    <!-- Aside con artículos relacionados -->
+        <section>
+        <article>
+            <header>
+                <h2><center> Menu de la cafeteria</center></h2>
+            </header>
+        </article>
+    </section>
+        <table border="2"> 
+            <thead>
+                <tr>
+                    <th id="categoria" scope="col"> Categoria</th>
+                    <th id="nombre" scope="col"> Producto </th>
+                    <th scope="col"> Descripcion </th>
+                    <th scope="col"> Precio </th>
+                </tr>
+            </thead>
+            <tbody>
+                <caption> </caption>
+                <tr>
+                    <td headers="categoria" rowspan="5"><strong>Bebidas calientes</strong></td>
+                    <td headers="nombre" scope="row"> Chocolate </td>
+                    <td> Una taza de tipico Chocolate colombiano </td>
+                    <td> $5.000</td>
+                </tr>
+                <tr>
+                    <td headers="nombre" scope="row"> Chocolate </td>
+                    <td> Una taza de tipico Chocolate colombiano </td>
+                    <td> $5.000</td>
+                </tr>
+                <tr>
+                    <td headers="nombre" scope="row"> Chocolate </td>
+                    <td> Una taza de tipico Chocolate colombiano </td>
+                    <td> $5.000</td>
+                </tr>
+                <tr>
+                    <td headers="nombre" scope="row"> Chocolate </td>
+                    <td> Una taza de tipico Chocolate colombiano </td>
+                    <td> $5.000</td>
+                </tr>
+                <tr>
+                    <td headers="nombre" scope="row"> Chocolate </td>
+                    <td> Una taza de tipico Chocolate colombiano </td>
+                    <td> $5.000</td>
+                </tr>
+                <tr>
+                    <td headers="categoria"  rowspan="3"><strong>Bebidas frias</strong></td>
+                    <td headers="nombre" scope="row"> Jugo de naranja </td>
+                    <td> Un vaso de jugo de naranja natural recien explimida libre de clonacion vegetal </td>
+                    <td> $6.000 </td>
+                </tr>
+                <tr>
+                    <td headers="nombre" scope="row"> Jugo de naranja </td>
+                    <td> Un vaso de jugo de naranja natural recien explimida libre de clonacion vegetal </td>
+                    <td> $6.000 </td>
+                </tr>
+                <tr>
+                    <td headers="nombre" scope="row"> Jugo de naranja </td>
+                    <td> Un vaso de jugo de naranja natural recien explimida libre de clonacion vegetal </td>
+                    <td> $6.000 </td>
+                </tr>
+                <tr>
+                    <td headers="categoria"  rowspan="2"><strong>Snaks</strong></td>
+                    <td headers="nombre" scope="row"> Chocolate </td>
+                    <td> Un vaso de jugo de naranja natural recien explimida libre de clonacion vegetal </td>
+                    <td> $6.000 </td>
+                </tr>
+                <tr>
+                    <td headers="nombre" scope="row"> Buñuelo</td>
+                    <td> Buñuelo hecho de masa de yuca, toda una exquisites en este pais y dimension</td>
+                    <td> $4.000</td>
+                </tr>
+                <tr>
+                    <td headers="categoria"  rowspan="4"><strong>Postres</strong></td>
+                    <td headers="nombre" scope="row"> Torta de amapola</td>
+                    <td> Tipica torta de amapola la cual esta extinta en la mayoria de universos del multiverso</td>
+                    <td> $4.500</td>
+                </tr>
+                <tr>
+                    <td headers="nombre" scope="row"> Buñuelo</td>
+                    <td> Buñuelo hecho de masa de yuca, toda una exquisites en este pais y dimension</td>
+                    <td> $4.000</td>
+                </tr>
+                <tr>
+                    <td headers="nombre" scope="row"> Buñuelo</td>
+                    <td> Buñuelo hecho de masa de yuca, toda una exquisites en este pais y dimension</td>
+                    <td> $4.000</td>
+                </tr>
+                <tr>
+                    <td headers="nombre" scope="row"> Buñuelo</td>
+                    <td> Buñuelo hecho de masa de yuca, toda una exquisites en este pais y dimension</td>
+                    <td> $4.000</td>
+                </tr>
+            </tbody>
+        </table><br>
+    <section>
+        <article>
+            <header>
+                <h3><center> Contactanos</center></h3>
+            </header>
+        </article>
+    </section>
+
+        <form action="/procesar_datos" method="post" enctype="miltipart/form_data" autocomplete="on">
+            <fieldset>
+                <legend><strong> Datos personales</strong></legend>
+            <!-- Aqui se añadiran los elementos de control del formularion, como inputs, textareas, etc.-->
+                <label>
+                Nombre:
+                    <input type="text" name="nombre_usuario" required><br>
+                </label>
+                <label>
+                Email:
+                    <input type="text" name="nombre_usuario" required><br>
+                </label>
+                <label>
+                Telefono:
+                    <input type="text" name="nombre_usuario" required><br>
+                </label>
+                </fieldset>
+                <label><br>
+            <fieldset>
+                <legend><strong> Datos de la consulta</strong> </legend>
+                Tipo de consulta:
+                    <select name="tipo_consulta" required>
+                        <option value="">--Selecciona una opcion--</option>
+                        <option value="informacion">Quiero más informacion</option>
+                        <option value="cita">Me gustaria hacer una cita</option>
+                        <optgroup label="Es una emergencia">
+                            <option value="glork">un Glork me persigue</option>
+                            <option value="suegra">mi suegra me persigio, salto entre dimensiones</option>
+                        </optgroup>
+                    </select>
+                </label><br><br>
+                <leabel>
+                    <input type="text" name="mensaje_usuario" required placeholder="Escribe tu mensaje aqui..." minlength="30" maxlength="200">
+                </leabel>
+            </fieldset><br>
+                <label>
+                Acepto <a href="#privacidad">politica de privacidad</a>
+                    <input type="checkbox" name="accept_pop" required><br>
+                </label><br>
+            <button type="submit">Enviar</button>
+            <button type="reset">Limpiar</button>
+        </form>
+
+            <!-- Aside con artículos relacionados -->
     <aside id="info">
             <h3>Artículos Relacionados</h3>
             <ul>
