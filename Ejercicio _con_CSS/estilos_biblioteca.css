@@ -63,13 +63,9 @@ body {
     padding: 15px;
     background-color: #ffffff;
     display: flex;
-    /* ¡Aquí está Flexbox! */
     flex-direction: column;
-    /* Apila los elementos verticalmente */
     align-items: center;
-    /* Centra los elementos horizontalmente */
     gap: 15px;
-    /* Espacio entre los elementos flex */
 }
 
 .book-image {
