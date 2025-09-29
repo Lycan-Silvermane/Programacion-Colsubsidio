@@ -1,0 +1,153 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    /* 250px para sidebar, 1fr para main */
+    grid-template-rows: auto 1fr auto;
+    /* auto para header/footer, 1fr para main/sidebar */
+    gap: 20px;
+    /* Espacio entre las celdas del grid */
+    min-height: 100vh;
+    /* Para que el grid ocupe toda la altura de la ventana */
+    grid-template-areas:
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+}
+
+.header {
+    grid-area: header;
+    color: #ffffff;
+    background-color: #1a65bb;
+
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #9dc8f8;
+}
+
+.main {
+    grid-area: main;
+    background-color: #1a65bb;
+
+}
+
+.footer {
+    grid-area: footer;
+}
+
+body {
+    margin: 0;
+    font-family: 'Tahoma', sans-serif;
+    background-color: #f8f7f7;
+}
+
+.header,
+.sidebar,
+.main {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.sidebar-title {
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.book-card {
+    width: 1fr;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.book-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.book-details {
+    text-align: center;
+}
+
+.book-title {
+    margin-top: 0;
+    margin-bottom: 2px;
+    color: #333;
+}
+
+.book-description {
+    font-size: 0.6em;
+    color: #666;
+}
+
+/*categorias filtro*/
+
+.book_categories {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/*
+.book_categories {
+    display: flex;
+    gap: 8px;           |* Espacio horizontal entre pares *|
+    margin-bottom: 10px; |* Espacio vertical entre filas *|
+    flex-wrap: wrap;     |* Que los ítems se acomoden si no entran *|
+}
+
+.book_categories input[type="checkbox"] {
+    margin: 0;
+    |* Opcional: tamaño personalizado *|
+    width: 18px;
+    height: 18px;
+}
+
+.book_categories label {
+    display: flex;
+    align-items: center; |* Centrar verticalmente el texto con el checkbox *|
+    cursor: pointer;
+    user-select: none;   |* Evita que se seleccione el texto al clicar *|
+    margin-right: 8px;  |* Espacio entre etiqueta y el próximo checkbox *|
+}
+*/
+
+/*--estilo de la sidebar--*/
+.sidebar {
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/*---------libros-------*/
+.grid-container-books {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 2 columnas de igual tamaño */
+    gap: 20px; /* Espacio entre los items */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/*----intento de añadir la descripcion en otra parte----*/
+.book-card:hover, .book-title:hover {
+    background-color: #111111;
+    color: #ffffff;
+} 
