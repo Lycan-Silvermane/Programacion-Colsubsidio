@@ -85,7 +85,7 @@ body {
 }
 
 .book-description {
-    font-size: 0.6em;
+    font-size: 0.6rem;
     color: #666;
 }
 
@@ -151,3 +151,38 @@ body {
     background-color: #111111;
     color: #ffffff;
 } 
+
+/*--make it responsive--*/
+.contenedor {
+    display:flex;
+    flex-wrap: wrap;
+    gap:20px
+}
+
+.item{
+    flex: 1 1 300;
+}
+
+@media (max-width: 600px){
+    .item {
+        flex-basis: 100%;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 20px;
+}
+
+@media (max-width: 900px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:600px){
+    .grid{
+        grid-template-columns: 1fr;
+    }
+}
