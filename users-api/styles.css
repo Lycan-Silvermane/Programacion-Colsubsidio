@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #ececec;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .25);
+}
+
+.buscarUser {
+    background-color: #152bf3;
+    color: #ffffff;
+    padding: .5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: 200;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .25);
+    transition: .2s;
+}
+
+.buscarUser:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .25);
+}
+
+main {
+    background-color: #a6bcee;
+}
+
+.listaUsuarios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1rem; 
+    grid-template-rows: repeat(3, 1fr);
+    max-width: 200px;
+    padding: 10px;
+
+}
+
+.user-card{
+    width: 280px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    padding-block: .25rem;
+    background-color: #f7f7f7;
+    margin: 20px auto;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .25);
+    margin: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    transition: .2s;
+}
+
+.user-card:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .25);
+}
+
+.user-company {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+ul {
+        display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
