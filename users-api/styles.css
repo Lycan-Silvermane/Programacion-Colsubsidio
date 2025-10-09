@@ -37,6 +37,13 @@ main {
 
 }
 
+.user-id {
+    font-size: large;
+    font-weight: 800;
+    padding: 1rem;
+
+}
+
 .user-card{
     width: 280px;
     border: 1px solid #ccc;

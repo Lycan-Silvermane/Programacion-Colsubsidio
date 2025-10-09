@@ -37,7 +37,7 @@ function mostrarDatosUsuarios (data){
         div.classList.add("usuario");
         div.innerHTML = `
         <div class = user-card>
-        <p class = "user-id">#${userId}</p>
+        <div class = "user-id">#${userId}</div>
         <div class="user-name"><strong>Nombre:</strong> ${userName}</div>
         <div class="user-username"><strong>Username:</strong> ${userUsername} </div>
         <div class="user-email"><strong>Email:</strong> ${userEmail} </div>
