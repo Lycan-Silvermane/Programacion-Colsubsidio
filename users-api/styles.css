@@ -25,6 +25,7 @@
 
 main {
     background-color: #a6bcee;
+    margin: 0 auto;
 }
 
 .listaUsuarios {
@@ -35,6 +36,18 @@ main {
     max-width: 200px;
     padding: 10px;
 
+}
+
+@media screen and (min-width: 470px) {
+    .listaUsuarios {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .listaUsuarios {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 .user-id {
@@ -81,3 +94,4 @@ ul {
     flex-wrap: wrap;
     flex-direction: column;
 }
+
