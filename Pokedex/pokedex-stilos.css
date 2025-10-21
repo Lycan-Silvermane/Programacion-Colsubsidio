@@ -67,56 +67,56 @@
     padding-block: 1rem;
     background-color: var(--type-fighting);
     margin: 20px auto;
-    }
+}
 
-    .pokedex-pantalla {
-        background-color: white;
-        border: 1px solid #ddd;
-        padding: 10px;
-        margin: 15px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-items: center;
-        flex-wrap: wrap;
-        flex-direction: column;
-        position: relative;
-        isolation: isolate;
-        overflow: hidden;
-    }
+.pokedex-pantalla {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
 
-    .pokemon-id-backgrnd {
-        position: absolute;
-        top: 2rem;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 6rem;
-        font-weight: 800;
-        z-index: -1;
-        color: var(--clr-gray);
-    }
+.pokemon-id-backgrnd {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6rem;
+    font-weight: 800;
+    z-index: -1;
+    color: var(--clr-gray);
+}
 
-    .pokesprite {
-        padding-inline: 1rem;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        max-width: 6rem;
-    }
+.pokesprite {
+    padding-inline: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 6rem;
+}
 
-    .pkmn-habilidades {
-        display: flex;
-        align-items: center;
-        justify-items: center;
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
+.pkmn-habilidades {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
 
-    .pokedex-imag {
-        padding: .5rem
-    }
+.pokedex-imag {
+    padding: .5rem
+}
 
-    @media screen and (min-width: 470px) {
+@media screen and (min-width: 470px) {
     .pokemon-todos {
         grid-template-columns: 1fr 1fr;
     }
@@ -128,20 +128,20 @@
     }
 }
 
-    .pokemon-types {
-        display: flex;
-        gap: .5rem;
-        font-weight: 500;
-        flex-wrap: wrap;
-        justify-content: center;   
-    }
+.pokemon-types {
+    display: flex;
+    gap: .5rem;
+    font-weight: 500;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-    .tipo {
-        padding: .25rem .5rem;
-        border-radius: 100vmax;
-    }
+.tipo {
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+}
 
-    .normal {
+.normal {
     background-color: var(--type-normal);
     color: var(--clr-black);
 }
