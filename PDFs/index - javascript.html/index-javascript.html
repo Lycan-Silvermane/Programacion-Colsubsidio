@@ -1,0 +1,524 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase Interactiva de JavaScript</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #f4f7f9;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .explanation {
+            background-color: #eaf5ff;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: #e8e8e8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .code-block {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+        }
+
+        .output {
+            font-weight: bold;
+            color: #2980b9;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            min-height: 20px;
+        }
+
+        .highlight {
+            background-color: #f1c40f;
+        }
+
+        #lista-tareas li {
+            cursor: pointer;
+            padding: 8px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        #lista-tareas li.completada {
+            text-decoration: line-through;
+            color: #95a5a6;
+        }
+
+        /* --- ESTILOS PARA LA CALCULADORA --- */
+        .calculadora {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            margin: 20px auto;
+        }
+
+        .calculadora #pantalla {
+            background-color: #2d3436;
+            color: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            text-align: right;
+            font-size: 24px;
+            border-radius: 5px;
+        }
+
+        .calculadora .botones {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+
+        .calculadora button {
+            padding: 15px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .calculadora button:hover {
+            background-color: #eaeaea;
+        }
+
+        .calculadora .operador {
+            background-color: #f1c40f;
+            color: white;
+        }
+
+        .calculadora .operador:hover {
+            background-color: #d4ac0d;
+        }
+
+        .calculadora #igual {
+            grid-column: span 2;
+            background-color: #27ae60;
+        }
+
+        .calculadora #igual:hover {
+            background-color: #229954;
+        }
+
+        .calculadora #limpiar {
+            background-color: #e74c3c;
+        }
+
+        .calculadora #limpiar:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Clase Interactiva de Fundamentos de JavaScript</h1>
+    <p class="explanation">Este documento demuestra los conceptos clave de JavaScript. Cada sección tiene una
+        explicación teórica seguida de un ejemplo práctico para experimentar.</p>
+
+    <div class="card">
+        <h2>1. Variables y Tipos de Datos</h2>
+        <div class="explanation">
+            <p>Las variables son "contenedores" para almacenar datos. En JavaScript moderno, usamos <code>let</code>
+                para variables que pueden cambiar de valor y <code>const</code> para valores constantes que no se pueden
+                reasignar.</p>
+            <p>JavaScript tiene tipado dinámico, lo que significa que una variable puede cambiar de tipo durante la
+                ejecución. Para saber el tipo de una variable, usamos el operador <code>typeof</code>.</p>
+        </div>
+        <h3>Demostración Práctica</h3>
+        <p>Ingresa un valor en el campo de texto y observa cómo JavaScript identifica su tipo.</p>
+        <input type="text" id="tipoDatoInput" placeholder="Escribe algo aquí (ej: 5, hola, true)">
+        <button id="tipoDatoBtn">Verificar Tipo de Dato</button>
+        <div class="output" id="tipoDatoOutput"></div>
+        <div class="code-block">
+            const miConstante = "Valor fijo";
+            let miVariable = document.getElementById('tipoDatoInput').value;
+            let tipo = typeof miVariable;
+            document.getElementById('tipoDatoOutput').textContent = `El tipo de dato es: ${tipo}`;
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Operadores</h2>
+        <div class="explanation">
+            <p>Los operadores nos permiten realizar operaciones con variables y valores.</p>
+            <ul>
+                <li><strong>Aritméticos:</strong> Para cálculos matemáticos (+, -, *, /, %).</li>
+                <li><strong>De Comparación:</strong> Devuelven <code>true</code> o <code>false</code>. Es crucial usar
+                    la igualdad estricta <code>===</code> que compara valor Y tipo.</li>
+                <li><strong>Lógicos:</strong> Para combinar condiciones (<code>&&</code> AND, <code>||</code> OR,
+                    <code>!</code> NOT).</li>
+            </ul>
+        </div>
+        <h3>Demostración Práctica</h3>
+        <p>Compara dos números para ver los operadores en acción.</p>
+        <input type="number" id="op1" value="10">
+        <input type="number" id="op2" value="5">
+        <button id="operadoresBtn">Ejecutar Operadores</button>
+        <div class="output" id="operadoresOutput"></div>
+    </div>
+
+    <div class="card">
+        <h2>3. Estructuras de Control</h2>
+        <div class="explanation">
+            <p>Nos permiten modificar el flujo de ejecución de nuestro programa.</p>
+            <ul>
+                <li><strong>Condicionales (if/else, switch):</strong> Ejecutan código si se cumple una condición.
+                    <code>switch</code> es útil cuando se compara una misma variable con múltiples valores exactos.</li>
+                <li><strong>Bucles (for, while):</strong> Repiten un bloque de código. El bucle <code>for</code> es
+                    ideal cuando sabes el número exacto de iteraciones. El bucle <code>for...of</code> itera sobre
+                    valores de objetos iterables como los arrays.</li>
+            </ul>
+        </div>
+        <h3>Demostración Práctica</h3>
+        <p>Introduce una calificación (0-100) para ver un <code>if/else</code>. Luego, generaremos una lista con un
+            bucle <code>for</code>.</p>
+        <input type="number" id="notaInput" placeholder="Introduce una nota (0-100)">
+        <button id="controlBtn">Evaluar Nota y Generar Lista</button>
+        <div class="output" id="controlOutput"></div>
+        <ul id="listaBucle"></ul>
+    </div>
+
+    <div class="card">
+        <h2>4. Funciones</h2>
+        <div class="explanation">
+            <p>Son bloques de código reutilizables que realizan una tarea específica. Ayudan a organizar y evitar
+                repetir código.</p>
+            <p>Las <strong>funciones flecha</strong> (introducidas en ES6) son una forma más concisa de escribir
+                funciones. Son muy útiles pero no pueden ser usadas como constructores.</p>
+        </div>
+        <h3>Demostración Práctica</h3>
+        <p>Los botones ejecutarán dos tipos de funciones para realizar el mismo cálculo.</p>
+        <button id="funcTradicionalBtn">Calcular con Función Tradicional</button>
+        <button id="funcFlechaBtn">Calcular con Función Flecha</button>
+        <div class="output" id="funcionesOutput"></div>
+    </div>
+
+    <div class="card">
+        <h2>5. DOM, Eventos y Manipulación</h2>
+        <div class="explanation">
+            <p>El <strong>DOM (Document Object Model)</strong> es una representación de nuestro HTML que JavaScript
+                puede manipular. Podemos seleccionar elementos, cambiar su contenido, estilo y atributos.</p>
+            <p>Los <strong>eventos</strong> son acciones que ocurren en el navegador (clics, pulsaciones de teclas,
+                etc.). Usamos <code>addEventListener</code> para "escuchar" estos eventos y ejecutar una función en
+                respuesta.</p>
+            <p>Para crear y eliminar elementos dinámicamente, usamos métodos como <code>document.createElement()</code>,
+                <code>appendChild()</code> y <code>remove()</code>.</p>
+            <p>La <strong>delegación de eventos</strong> es una técnica eficiente donde se asigna un solo "listener" a
+                un elemento padre para manejar eventos en múltiples hijos, incluso los que se añaden después.</p>
+        </div>
+        <h3>Demostración Práctica Final: Lista de Tareas Interactiva</h3>
+        <input type="text" id="input-tarea" placeholder="Escribe una tarea y presiona 'Añadir'">
+        <button id="btn-add-tarea">Añadir Tarea</button>
+        <ul id="lista-tareas">
+        </ul>
+        <div class="output" id="domOutput"></div>
+    </div>
+
+    <div class="card">
+        <h2>6. Ejemplo Práctico: Calculadora</h2>
+        <div class="explanation">
+            <p>Este ejemplo combina todo lo aprendido: HTML para la estructura, CSS para el estilo, y JavaScript para
+                manejar los eventos de los botones, realizar las operaciones matemáticas y manipular el DOM para mostrar
+                el resultado en pantalla.</p>
+        </div>
+        <div class="calculadora">
+            <div id="pantalla">0</div>
+            <div class="botones">
+                <button class="numero">7</button>
+                <button class="numero">8</button>
+                <button class="numero">9</button>
+                <button class="operador" data-operador="+">+</button>
+
+                <button class="numero">4</button>
+                <button class="numero">5</button>
+                <button class="numero">6</button>
+                <button class="operador" data-operador="-">-</button>
+
+                <button class="numero">1</button>
+                <button class="numero">2</button>
+                <button class="numero">3</button>
+                <button class="operador" data-operador="*">*</button>
+
+                <button class="numero">0</button>
+                <button id="decimal">.</button>
+                <button id="limpiar">C</button>
+                <button class="operador" data-operador="/">/</button>
+
+                <button id="igual">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Usamos el evento DOMContentLoaded para asegurarnos de que todo el HTML está cargado antes de ejecutar el script.
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // --- LÓGICA PARA LA SECCIÓN 1: Variables y Tipos de Datos ---
+            const tipoDatoBtn = document.getElementById('tipoDatoBtn');
+            tipoDatoBtn.addEventListener('click', function () {
+                const input = document.getElementById('tipoDatoInput');
+                let valor = input.value;
+                const output = document.getElementById('tipoDatoOutput');
+
+                // Intenta convertir a número o booleano para una mejor demostración
+                if (!isNaN(valor) && valor.trim() !== "") {
+                    valor = Number(valor);
+                } else if (valor.toLowerCase() === 'true') {
+                    valor = true;
+                } else if (valor.toLowerCase() === 'false') {
+                    valor = false;
+                }
+
+                output.textContent = `El valor introducido es de tipo: ${typeof valor}`;
+            });
+
+            // --- LÓGICA PARA LA SECCIÓN 2: Operadores ---
+            const operadoresBtn = document.getElementById('operadoresBtn');
+            operadoresBtn.addEventListener('click', function () {
+                const op1 = Number(document.getElementById('op1').value);
+                const op2 = Number(document.getElementById('op2').value);
+                const output = document.getElementById('operadoresOutput');
+
+                const suma = op1 + op2;
+                const esMayor = op1 > op2;
+                const ambosPositivos = op1 > 0 && op2 > 0;
+
+                output.innerHTML = `Suma (Aritmético): ${suma} <br>
+                            ¿El primero es mayor? (Comparación): ${esMayor} <br>
+                            ¿Ambos son positivos? (Lógico): ${ambosPositivos}`;
+            });
+
+            // --- LÓGICA PARA LA SECCIÓN 3: Estructuras de Control ---
+            const controlBtn = document.getElementById('controlBtn');
+            controlBtn.addEventListener('click', function () {
+                const nota = Number(document.getElementById('notaInput').value);
+                const output = document.getElementById('controlOutput');
+                let mensaje;
+
+                // if/else if/else
+                if (nota >= 90) {
+                    mensaje = "¡Excelente (A)!";
+                } else if (nota >= 70) {
+                    mensaje = "Bien hecho (B)";
+                } else if (nota >= 50) {
+                    mensaje = "Suficiente (C)";
+                } else {
+                    mensaje = "Necesitas mejorar (F)";
+                }
+                output.textContent = `Resultado de la evaluación: ${mensaje}`;
+
+                // Bucle for y for...of
+                const listaBucle = document.getElementById('listaBucle');
+                listaBucle.innerHTML = ""; // Limpiar lista
+                const items = ['Manzana', 'Pera', 'Naranja']; // Un array
+                // for...of para iterar sobre el array
+                for (const fruta of items) {
+                    const li = document.createElement('li');
+                    li.textContent = `Fruta: ${fruta}`;
+                    listaBucle.appendChild(li);
+                }
+            });
+
+            // --- LÓGICA PARA LA SECCIÓN 4: Funciones ---
+            // Función Tradicional
+            function calcularAreaTradicional(base, altura) {
+                return (base * altura) / 2;
+            }
+            document.getElementById('funcTradicionalBtn').addEventListener('click', function () {
+                const resultado = calcularAreaTradicional(10, 5);
+                document.getElementById('funcionesOutput').textContent = `Área (tradicional): ${resultado}`;
+            });
+
+            // Función Flecha
+            const calcularAreaFlecha = (base, altura) => (base * altura) / 2;
+            document.getElementById('funcFlechaBtn').addEventListener('click', function () {
+                const resultado = calcularAreaFlecha(10, 5);
+                document.getElementById('funcionesOutput').textContent = `Área (flecha): ${resultado}`;
+            });
+
+            // --- LÓGICA PARA LA SECCIÓN 5: DOM Y EVENTOS ---
+            const btnAddTarea = document.getElementById('btn-add-tarea');
+            const inputTarea = document.getElementById('input-tarea');
+            const listaTareas = document.getElementById('lista-tareas');
+            const domOutput = document.getElementById('domOutput');
+
+            btnAddTarea.addEventListener('click', () => {
+                const textoTarea = inputTarea.value.trim();
+                if (textoTarea === "") {
+                    domOutput.textContent = "Error: El campo de la tarea no puede estar vacío.";
+                    domOutput.style.color = 'red';
+                    return;
+                }
+
+                const nuevaTarea = document.createElement('li');
+                nuevaTarea.textContent = textoTarea;
+                nuevaTarea.setAttribute('title', 'Haz clic para completar');
+                listaTareas.appendChild(nuevaTarea);
+                inputTarea.value = "";
+                domOutput.textContent = `Se ha añadido la tarea: "${textoTarea}"`;
+                domOutput.style.color = '#2980b9';
+            });
+
+            listaTareas.addEventListener('click', (evento) => {
+                if (evento.target.tagName === 'LI') {
+                    evento.target.classList.toggle('completada');
+                    domOutput.textContent = `Se ha modificado el estado de la tarea: "${evento.target.textContent}"`;
+                }
+            });
+
+            // --- LÓGICA PARA LA SECCIÓN 6: CALCULADORA ---
+            const pantalla = document.getElementById('pantalla');
+            const botonesCalculadora = document.querySelector('.calculadora .botones');
+
+            let valorActual = '0';
+            let operadorPendiente = null;
+            let valorAnterior = null;
+
+            function actualizarPantalla() {
+                pantalla.textContent = valorActual;
+            }
+
+            function ingresarNumero(numero) {
+                if (valorActual === '0') {
+                    valorActual = numero;
+                } else {
+                    valorActual += numero;
+                }
+            }
+
+            function ingresarDecimal() {
+                if (!valorActual.includes('.')) {
+                    valorActual += '.';
+                }
+            }
+
+            function aplicarOperador(operador) {
+                if (valorAnterior !== null) {
+                    calcularResultado();
+                }
+                valorAnterior = valorActual;
+                valorActual = '0';
+                operadorPendiente = operador;
+            }
+
+            function calcularResultado() {
+                if (operadorPendiente === null || valorAnterior === null) return;
+                const num1 = parseFloat(valorAnterior);
+                const num2 = parseFloat(valorActual);
+
+                let resultado;
+                switch (operadorPendiente) {
+                    case '+': resultado = num1 + num2; break;
+                    case '-': resultado = num1 - num2; break;
+                    case '*': resultado = num1 * num2; break;
+                    case '/': resultado = num1 / num2; break;
+                    default: return;
+                }
+                valorActual = String(resultado);
+                operadorPendiente = null;
+                valorAnterior = null;
+            }
+
+            function limpiarCalculadora() {
+                valorActual = '0';
+                operadorPendiente = null;
+                valorAnterior = null;
+            }
+
+            botonesCalculadora.addEventListener('click', (evento) => {
+                const target = evento.target;
+                if (!target.matches('button')) return;
+
+                if (target.classList.contains('numero')) {
+                    ingresarNumero(target.textContent);
+                } else if (target.id === 'decimal') {
+                    ingresarDecimal();
+                } else if (target.classList.contains('operador')) {
+                    aplicarOperador(target.dataset.operador);
+                } else if (target.id === 'igual') {
+                    calcularResultado();
+                } else if (target.id === 'limpiar') {
+                    limpiarCalculadora();
+                }
+
+                actualizarPantalla();
+            });
+
+            actualizarPantalla(); // Inicializar la pantalla en 0
+        });
+    </script>
+
+</body>
+
+</html>

@@ -37,6 +37,30 @@ main {
 
 }
 
+@media screen and (min-width: 470px) {
+    .listaUsuarios {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .listaUsuarios {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.user-id {
+    font-size: large;
+    font-weight: 800;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
 .user-card{
     width: 280px;
     border: 1px solid #ccc;
@@ -74,3 +98,4 @@ ul {
     flex-wrap: wrap;
     flex-direction: column;
 }
+
