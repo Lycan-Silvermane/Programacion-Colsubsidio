@@ -11,7 +11,7 @@ function FormularioUsuario({ agregarUsuario, usuarios, actualizarUsuario }) {
 
   useEffect(() => {
     if (id && usuarios) {
-      const usuario = usuarios.find((u) => u.id === Number(id));
+      const usuario = usuarios.find((u) => u.id === id);
       if (usuario) {
         setNombre(usuario.nombre);
         setCorreo(usuario.correo);
@@ -50,13 +50,13 @@ function FormularioUsuario({ agregarUsuario, usuarios, actualizarUsuario }) {
 
     if (id) {
       actualizarUsuario({
-        id: Number(id),
+        id: id,
         nombre,
         correo,
       });
     } else {
       agregarUsuario({
-        id: Date.now(),
+        id: correo,
         nombre,
         correo,
       });

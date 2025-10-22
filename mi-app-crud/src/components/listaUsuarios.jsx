@@ -14,6 +14,12 @@ function ListaUsuarios({ usuarios, eliminarUsuario }) {
         <ul className="usersList">
           {usuarios.map((usuario) => (
             <li className="buttonList" key={usuario.id}>
+              <img
+                src={usuario.perfilimg}
+                alt={usuario.nombre}
+                width="40"
+                height="80"
+              />
               <strong>{usuario.nombre}</strong> ({usuario.correo}){" "}
               <Link to={`/editar/${usuario.id}`}>
                 <button className="buttonEdit">Editar</button>
