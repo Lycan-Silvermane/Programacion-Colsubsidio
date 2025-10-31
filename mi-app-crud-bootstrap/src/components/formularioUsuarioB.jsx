@@ -8,6 +8,7 @@ import {
   Button,
   FormGroup,
   FormControl,
+  Alert,
 } from "react-bootstrap";
 
 function FormularioUsuario({ agregarUsuario, usuarios, actualizarUsuario }) {
@@ -16,6 +17,8 @@ function FormularioUsuario({ agregarUsuario, usuarios, actualizarUsuario }) {
   const [errorCorreo, setErrorCorreo] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   useEffect(() => {
     if (id && usuarios) {
@@ -47,7 +50,8 @@ function FormularioUsuario({ agregarUsuario, usuarios, actualizarUsuario }) {
     e.preventDefault();
 
     if (!nombre.trim() || !correo.trim()) {
-      alert("Todos los campos son obligatorios");
+      setAlertMessage("Todos los campos son obligatorios");
+      setShowAlert(true);
       return;
     }
 
@@ -86,6 +90,16 @@ function FormularioUsuario({ agregarUsuario, usuarios, actualizarUsuario }) {
             </Link>
           </Col>
         </div>
+        {showAlert && (
+          <Alert
+            variant="warning"
+            onClose={() => setShowAlert(false)}
+            dismissible
+            className="mt-2"
+          >
+            {alertMessage}
+          </Alert>
+        )}
         <Form.Group className="mb-1">
           <div>
             <Form.Label className="mb-1 mt-3 text-white">Nombre:</Form.Label>
@@ -107,9 +121,7 @@ function FormularioUsuario({ agregarUsuario, usuarios, actualizarUsuario }) {
               value={correo}
               onChange={handleCorreoChange}
             />
-            {errorCorreo && (
-              <span className="error-message">{errorCorreo}</span>
-            )}
+            {errorCorreo && <Alert variant="danger">{errorCorreo}</Alert>}
           </div>
           <Button
             className="mt-3 mb-3"

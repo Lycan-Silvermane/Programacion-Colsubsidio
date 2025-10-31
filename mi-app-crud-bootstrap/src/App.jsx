@@ -48,10 +48,7 @@ function App() {
   };
 
   const eliminarUsuario = (id) => {
-    const confirmar = window.confirm("¿Estás seguro de eliminar este usuario?");
-    if (confirmar) {
-      setUsuarios(usuarios.filter((u) => u.id !== id));
-    }
+    setUsuarios(usuarios.filter((u) => u.id !== id));
   };
 
   return (
