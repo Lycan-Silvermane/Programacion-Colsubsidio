@@ -26,6 +26,7 @@ const Stats = () => {
   const [evolutions, setEvolutions] = useState([]);
   const [isShiny, setIsShiny] = useState(false);
   const [imagenShiny, setImagenShiny] = useState(null);
+  const [error, setError] = useState(null);
 
   const getPokemon = async () => {
     const url = "https://pokeapi.co/api/v2/pokemon/" + id;
@@ -47,6 +48,7 @@ const Stats = () => {
       await getEspecie(data.species.name);
     } catch (error) {
       console.error("Error al cargar el Pokémon:", error);
+      setError("Error obtaining the Pokemon's info");
     } finally {
       setIsLoading(false);
     }
@@ -72,6 +74,7 @@ const Stats = () => {
       setEvolutions(evoChain);
     } catch (error) {
       console.error("Error al cargar la linea evolutiva:", error);
+      setError("It was a problem charging the evolution chain");
     }
   };
 
@@ -91,6 +94,7 @@ const Stats = () => {
       if (data.evolution_chain) await getEvolutions(data.evolution_chain.url);
     } catch (error) {
       console.error("Error al cargar la especie:", error);
+      setError("No info found");
     }
   };
 
@@ -101,10 +105,12 @@ const Stats = () => {
       setHabitat(data.name);
     } catch (error) {
       console.error("Error al cargar el hábitat:", error);
+      setError("Error obteining the habitat");
     }
   };
 
   useEffect(() => {
+    setError(null);
     getPokemon();
   }, [id]);
 
@@ -114,6 +120,11 @@ const Stats = () => {
         <Col>
           <Card className="shadow mt-2 mb-2">
             <CardBody className="mt-2">
+              {error && (
+                <Alert color="danger" className="text-center fw-bold">
+                  {error}
+                </Alert>
+              )}
               <Row>
                 <Col className="text-end">
                   <Link to="/" className="btn btn-dark mb-3">
@@ -132,100 +143,104 @@ const Stats = () => {
                   )}
                 </Col>
               </Row>
-              <Row>
-                <Col md="6">
-                  <CardText className="h1 text-capitalize mt-2">
-                    {pokemon.name}
-                  </CardText>
-                  <CardText className="fs-3">{descripcion}</CardText>
-                  <CardText className="fs-5">
-                    <b>Hight:</b> {pokemon.height / 10} m <b>Weight:</b>{" "}
-                    {pokemon.weight / 10} kg
-                  </CardText>
-                  <CardText className="fs-5">
-                    <b>Type:</b>
-                    {""}
-                    {pokemon.types?.map((t, i) => (
-                      <span key={i} className={`type-badge ${t.type.name}`}>
-                        {t.type.name}
-                      </span>
-                    ))}
-                  </CardText>
-                  <CardText className="fs-5">
-                    <b>Abilities:</b>
-                    {""}
-                    {pokemon.abilities?.map((j, i) => (
-                      <Badge pill key={i} className="ability-badge me-1">
-                        {j.ability.name}
-                      </Badge>
-                    ))}
-                  </CardText>
-                  <CardText className="fs-5 text-capitalize">
-                    <b>Habitat:</b> {habitat}
-                  </CardText>
-                </Col>
-                <Col md="6" className="text-center">
-                  {!isLoading && imagen && (
-                    <img
-                      src={isShiny ? imagenShiny : imagen}
-                      alt={pokemon.name}
-                      className="img-fluid animate__animated animate__bounceInRight w-100"
-                    />
-                  )}
-                  {!isLoading && imagenShiny && (
-                    <div className="d-flex mt-3 align-items-center justify-content-end">
-                      <div className="form-check form-switch d-flex align-items-center custom-switch">
-                        <Input
-                          type="switch"
-                          id="shinySwitch"
-                          checked={isShiny}
-                          onChange={() => setIsShiny(!isShiny)}
+              {!isLoading && !error && (
+                <>
+                  <Row>
+                    <Col md="6">
+                      <CardText className="h1 text-capitalize mt-2">
+                        {pokemon.name}
+                      </CardText>
+                      <CardText className="fs-3">{descripcion}</CardText>
+                      <CardText className="fs-5">
+                        <b>Hight:</b> {pokemon.height / 10} m <b>Weight:</b>{" "}
+                        {pokemon.weight / 10} kg
+                      </CardText>
+                      <CardText className="fs-5">
+                        <b>Type:</b>
+                        {""}
+                        {pokemon.types?.map((t, i) => (
+                          <span key={i} className={`type-badge ${t.type.name}`}>
+                            {t.type.name}
+                          </span>
+                        ))}
+                      </CardText>
+                      <CardText className="fs-5">
+                        <b>Abilities:</b>
+                        {""}
+                        {pokemon.abilities?.map((j, i) => (
+                          <Badge pill key={i} className="ability-badge me-1">
+                            {j.ability.name}
+                          </Badge>
+                        ))}
+                      </CardText>
+                      <CardText className="fs-5 text-capitalize">
+                        <b>Habitat:</b> {habitat}
+                      </CardText>
+                    </Col>
+                    <Col md="6" className="text-center">
+                      {!isLoading && imagen && (
+                        <img
+                          src={isShiny ? imagenShiny : imagen}
+                          alt={pokemon.name}
+                          className="img-fluid animate__animated animate__bounceInRight w-100"
                         />
-                        <Label
-                          for="shinySwitch"
-                          className="text-dark ms-2 mb-0 fw-bold"
-                        >
-                          Show Shiny Version
-                        </Label>
-                      </div>
-                    </div>
-                  )}
-                </Col>
-                <Col md="12 mt-2">
-                  <CardText className="fs-4 text-center">
-                    <b>Stats</b>
-                  </CardText>
-                </Col>
-                {""}
-                {pokemon.stats?.map((s, i) => (
-                  <Row key={i}>
-                    <Col xs="6" md="3" className="text-capitalize">
-                      <b>{s.stat.name}</b>
+                      )}
+                      {!isLoading && imagenShiny && (
+                        <div className="d-flex mt-3 align-items-center justify-content-end">
+                          <div className="form-check form-switch d-flex align-items-center custom-switch">
+                            <Input
+                              type="switch"
+                              id="shinySwitch"
+                              checked={isShiny}
+                              onChange={() => setIsShiny(!isShiny)}
+                            />
+                            <Label
+                              for="shinySwitch"
+                              className="text-dark ms-2 mb-0 fw-bold"
+                            >
+                              Show Shiny Version
+                            </Label>
+                          </div>
+                        </div>
+                      )}
                     </Col>
-                    <Col xs="6" md="3">
-                      <Progress className="my-2" value={s.base_stat}>
-                        {s.base_stat}
-                      </Progress>
+                    <Col md="12 mt-2">
+                      <CardText className="fs-4 text-center">
+                        <b>Stats</b>
+                      </CardText>
                     </Col>
+                    {""}
+                    {pokemon.stats?.map((s, i) => (
+                      <Row key={i}>
+                        <Col xs="6" md="3" className="text-capitalize">
+                          <b>{s.stat.name}</b>
+                        </Col>
+                        <Col xs="6" md="3">
+                          <Progress className="my-2" value={s.base_stat}>
+                            {s.base_stat}
+                          </Progress>
+                        </Col>
+                      </Row>
+                    ))}
+                    <Col md="12 mt-2">
+                      <CardText className="fs-4 text-center">
+                        <b>Evolution Chain</b>
+                      </CardText>
+                    </Col>
+                    <Row className="text-center justify-content-center">
+                      {evolutions.length > 0 ? (
+                        evolutions.map((poke, i) => (
+                          <PokeCard key={i} poke={poke} small />
+                        ))
+                      ) : (
+                        <p className="text-center text-white">
+                          No evolution data available.
+                        </p>
+                      )}
+                    </Row>
                   </Row>
-                ))}
-                <Col md="12 mt-2">
-                  <CardText className="fs-4 text-center">
-                    <b>Evolution Chain</b>
-                  </CardText>
-                </Col>
-                <Row className="text-center justify-content-center">
-                  {evolutions.length > 0 ? (
-                    evolutions.map((poke, i) => (
-                      <PokeCard key={i} poke={poke} small />
-                    ))
-                  ) : (
-                    <p className="text-center text-white">
-                      No evolution data available.
-                    </p>
-                  )}
-                </Row>
-              </Row>
+                </>
+              )}
             </CardBody>
           </Card>
         </Col>
