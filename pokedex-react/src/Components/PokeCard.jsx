@@ -1,15 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Col, Card, CardBody, CardFooter, CardImg, Badge } from "reactstrap";
+import {
+  Col,
+  Card,
+  CardBody,
+  CardFooter,
+  CardImg,
+  Badge,
+  Alert,
+} from "reactstrap";
 import { Link } from "react-router-dom";
 
 const PokeCard = ({ poke, small = false }) => {
   const [pokemon, setPokemon] = useState(null);
   const [imagen, setImagen] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const getPokemon = async () => {
+      setError(null);
       try {
         const response = await axios.get(poke.url);
         const data = response.data;
@@ -21,6 +31,7 @@ const PokeCard = ({ poke, small = false }) => {
         setImagen(sprite);
       } catch (error) {
         console.error("Error al cargar el Pokémon:", error);
+        setError("Error charging the info of the Pokemon");
       } finally {
         setIsLoading(false);
       }
@@ -36,6 +47,13 @@ const PokeCard = ({ poke, small = false }) => {
         }`}
         style={small ? { width: "180px" } : {}}
       >
+        {!isLoading && error && (
+          <CardBody className="bg-danger bg-opacity-25 text-danger">
+            <Alert color="danger" className="fw-bold m-0 p-2">
+              {error}
+            </Alert>
+          </CardBody>
+        )}
         {isLoading ? (
           <CardImg src="/img/pokeball1.gif" height="200" className="p-3" />
         ) : (
