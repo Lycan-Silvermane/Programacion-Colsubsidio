@@ -1,0 +1,21 @@
+ {% extends 'base.html' %}
+ {% block title %}Registro de Usuario - Biblioteca Virtual{% endblock %}
+ {% block content %}
+    <h3>Registro de Nuevo Usuario</h3>
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            {{ form.nombre.label_tag }}
+            {{ form.nombre }}
+        </p>
+        <p>
+            {{ form.correo.label_tag }}
+            {{ form.correo }}
+        </p>
+        <p>
+            {{ form.edad.label_tag }}
+            {{ form.edad }}
+        </p>
+        <input type="submit" value="Registrar"/>
+    </form>
+ {% endblock %}

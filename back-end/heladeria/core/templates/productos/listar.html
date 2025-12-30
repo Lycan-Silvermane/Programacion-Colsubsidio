@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Productos</h2>
+<div class="row">
+  {% for p in productos %}
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5>{{ p.nombre }}</h5>
+        <p>Precio: ${{ p.precio_publico }}</p>
+        <a href="{% url 'detalle_producto' p.id %}" class="btn btn-primary">
+          Ver
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

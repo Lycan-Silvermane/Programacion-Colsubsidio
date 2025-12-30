@@ -1,0 +1,7 @@
+<h2> Hay {{usuarios|length}} usuarios:</h2> 
+ {% for usuario in usuarios %}
+   <li> {{ usuario.nombre }} tiene {{ usuario.edad }} años ({{ usuario.correo }})  {% if usuario.activo %} Usuario activo 🤑🤑🤑 {% else %} Usuario bloqueado 🚫🚫🚫{% endif %}</li>
+ {% empty %}
+    No hay usuarios registrados
+ {% endfor %}
+
